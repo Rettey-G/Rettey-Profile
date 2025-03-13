@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corel Draw Projects - Abdul Rahman Gasim</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/project-detail.css">
+</head>
+<body>
+  <!-- Header Container -->
+  <div id="header-container"></div>
+
+  <!-- Project Detail Section -->
+  <section class="project-detail">
+    <h2>3D Architecture Project</h2>
+    <div class="project-content">
+      <img src="../Images/Rettey 3.jpg" alt="3D Architecture Sample" class="project-image">
+      <p>This project showcases my expertise in 3D architectural design. I created detailed models and renderings for a modern beach house.</p>
+      <div class="project-video">
+        <video controls>
+          <source src="../videos/architecture.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Load header
+    fetch('../components/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+        // Set active state for current page
+        document.querySelectorAll('.main-nav a').forEach(link => {
+          if (link.getAttribute('href').includes('projects.html')) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+    // Load footer
+    fetch('../components/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

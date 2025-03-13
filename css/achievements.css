@@ -1,0 +1,152 @@
+.achievements {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+}
+
+.achievements h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 4rem;
+  font-size: 2.8rem;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.achievements h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+  border-radius: 2px;
+}
+
+.certificates-masonry {
+  columns: 4;
+  column-gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.certificate-card {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: white;
+}
+
+.certificate-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.5s ease;
+  filter: brightness(0.95);
+}
+
+.certificate-card:hover .certificate-img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.certificate-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
+  color: white;
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certificate-card:hover .certificate-overlay {
+  transform: translateY(0);
+}
+
+.certificate-overlay p {
+  margin: 0.7rem 0;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease 0.2s;
+}
+
+.certificate-card:hover .certificate-overlay p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.certificate-overlay p:first-child {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 1400px) {
+  .certificates-masonry {
+    columns: 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .certificates-masonry {
+    columns: 2;
+  }
+  .achievements h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .certificates-masonry {
+    columns: 1;
+  }
+  .achievements {
+    padding: 2rem 1rem;
+  }
+  .achievements h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Loading Animation */
+.certificate-card {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation delay for cards */
+.certificate-card:nth-child(1) { animation-delay: 0.1s; }
+.certificate-card:nth-child(2) { animation-delay: 0.2s; }
+.certificate-card:nth-child(3) { animation-delay: 0.3s; }
+.certificate-card:nth-child(4) { animation-delay: 0.4s; }
